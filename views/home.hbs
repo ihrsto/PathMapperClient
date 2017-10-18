@@ -27,6 +27,7 @@
       function getPoints() {
         var xhttp = new XMLHttpRequest();
         var APIURL = "https://peaceful-woodland-37987.herokuapp.com/" + "{{path}}"
+        // var APIURL = "http://localhost:3000/" + "{{path}}"
         xhttp.open("GET", APIURL, false);
         xhttp.setRequestHeader("Content-type", "application/json");
         xhttp.send();
@@ -43,7 +44,7 @@
 
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 3,
-          center: {lat: 0, lng: -180},
+          center: {lat: 0, lng: -0},
           mapTypeId: 'terrain'
         });
 
