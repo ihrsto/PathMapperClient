@@ -27,7 +27,7 @@
       function getPoints() {
         var xhttp = new XMLHttpRequest();
         var APIURL = "https://peaceful-woodland-37987.herokuapp.com/path/" + "{{path}}"
-        // var APIURL = "http://localhost:3000/" + "{{path}}"
+        // var APIURL = "http://localhost:3000/path/" + "{{path}}"
         xhttp.open("GET", APIURL, false);
         xhttp.setRequestHeader("Content-type", "application/json");
         xhttp.send();
@@ -42,13 +42,17 @@
 
         function initMap() {
 
+        var runCoordinates = getPoints();
+
+        var lastCoord = runCoordinates[runCoordinates.length -1];
+
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 3,
-          center: {lat: 0, lng: -0},
+          zoom: 16,
+          center: lastCoord,
           mapTypeId: 'terrain'
         });
 
-        var runCoordinates = getPoints();
+
         var runPath = new google.maps.Polyline({
           path: runCoordinates,
           geodesic: true,
