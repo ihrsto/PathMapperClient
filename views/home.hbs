@@ -26,7 +26,7 @@
 
       function getPoints() {
         var xhttp = new XMLHttpRequest();
-        var APIURL = "https://peaceful-woodland-37987.herokuapp.com/" + "{{path}}"
+        var APIURL = "https://peaceful-woodland-37987.herokuapp.com/path/" + "{{path}}"
         // var APIURL = "http://localhost:3000/" + "{{path}}"
         xhttp.open("GET", APIURL, false);
         xhttp.setRequestHeader("Content-type", "application/json");
