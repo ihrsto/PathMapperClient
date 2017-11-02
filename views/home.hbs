@@ -14,12 +14,23 @@
       #sidebar {
         width: 20%;
         float: right;
+        box-sizing: border-box;
+        padding: 10px;
+      }
+      #sidebar>div {
+        padding: 5px 0;
+      }
+      #sidebar .label {
+        display: inline-block;
+        width: 100px;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 100%;
         margin: 0;
         padding: 0;
+        font-family: Arial,Sans-serif;
+        font-size: 14px;
       }
     </style>
   </head>
@@ -211,11 +222,12 @@
 
         NYMRoute.setMap(map);
         runPath.setMap(map);
+
+        setInterval(function(){
+          runCoordinates = getPoints();
+          runPath.setPath(runCoordinates);
+        }, 60000);
       }
-      setInterval(function(){
-        runCoordinates = getPoints();
-        runPath.setPath(runCoordinates);
-      }, 10000);
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPMjXqG1T7gD7cxd_gKNwgYJfSSaZ4vAk&callback=initMap">
