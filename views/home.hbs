@@ -46,7 +46,7 @@
       <div>
         <span class="label">Distance:</span>
         <span class="value" id="distance">{{pathLength}}</span>
-        <span class="label">meters</span>
+        <span class="label">km</span>
       </div>
       <div>
         <span class="label">Time:</span>
@@ -109,7 +109,7 @@
         });
 
         function calcDist() {
-          var pathLength = google.maps.geometry.spherical.computeLength(runPath.getPath());
+          var pathLength = google.maps.geometry.spherical.computeLength(runPath.getPath())/1000;
           pathLength = pathLength.toFixed(2);
           document.getElementById("distance").innerHTML = pathLength;
         }
