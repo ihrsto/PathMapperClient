@@ -9,10 +9,10 @@
        * element that contains the map. */
       #map {
         height: 100%;
-        width: 70%;
+        width: 80%;
       }
       #sidebar {
-        width: 30%;
+        width: 20%;
         float: right;
       }
       /* Optional: Makes the sample page fill the window. */
@@ -46,7 +46,7 @@
       function getPoints() {
         var xhttp = new XMLHttpRequest();
         var APIURL = "https://peaceful-woodland-37987.herokuapp.com/path/" + "{{path}}"
-        // var APIURL = "http://localhost:3000/path" + "{{path}}"
+        // var APIURL = "http://localhost:3000/path/" + "{{path}}"
         xhttp.open("GET", APIURL, false);
         xhttp.setRequestHeader("Content-type", "application/json");
         xhttp.send();
@@ -215,7 +215,7 @@
       setInterval(function(){
         runCoordinates = getPoints();
         runPath.setPath(runCoordinates);
-      }, 60000);
+      }, 10000);
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPMjXqG1T7gD7cxd_gKNwgYJfSSaZ4vAk&callback=initMap">
