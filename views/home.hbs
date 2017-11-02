@@ -7,6 +7,8 @@
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
+      #logo {margin: -15px -10px 10px -10px}
+      #logo img {width: 100%}
       #map {
         height: 100%;
         width: 80%;
@@ -24,7 +26,7 @@
         display: inline-block;
         width: 100px;
       }
-      /* Optional: Makes the sample page fill the window. */
+
       html, body {
         height: 100%;
         margin: 0;
@@ -36,13 +38,14 @@
   </head>
   <body>
     <div id="sidebar">
+      <div id="logo"><img src="http://www.funkcija-13.hr/img/maratonac.png" /></div>
       <div>
         <span class="label">NY local time:</span>
         <span class="value">{{clock}}</span>
       </div>
       <div>
         <span class="label">Distance:</span>
-        <span class="value">{{distance}}</span>
+        <span class="value">{{pathLength}}</span>
       </div>
       <div>
         <span class="label">Time:</span>
@@ -220,6 +223,8 @@
           strokeWeight: 4
         });
 
+        var pathLength = google.maps.geometry.spherical.computeLength(runPath);
+
         NYMRoute.setMap(map);
         runPath.setMap(map);
 
@@ -230,8 +235,9 @@
         }, 10000);
       }
     </script>
+
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPMjXqG1T7gD7cxd_gKNwgYJfSSaZ4vAk&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPMjXqG1T7gD7cxd_gKNwgYJfSSaZ4vAk&&libraries=geometry&callback=initMap">
     </script>
   </body>
 </html>
