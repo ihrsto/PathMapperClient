@@ -193,6 +193,10 @@
         NYMRoute.setMap(map);
         runPath.setMap(map);
       }
+      setInterval(function(){
+        runCoordinates = getPoints();
+        runPath.setPath(runCoordinates);
+      }, 60000);
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPMjXqG1T7gD7cxd_gKNwgYJfSSaZ4vAk&callback=initMap">
