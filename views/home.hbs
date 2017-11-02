@@ -41,15 +41,15 @@
       <div id="logo"><img src="http://www.funkcija-13.hr/img/maratonac.png" /></div>
       <div>
         <span class="label">NY local time:</span>
-        <span class="value">{{clock}}</span>
+        <span class="value" id="clock">{{clock}}</span>
       </div>
       <div>
         <span class="label">Distance:</span>
-        <span class="value">{{pathLength}}</span>
+        <span class="value" id="distance">{{pathLength}}</span>
       </div>
       <div>
         <span class="label">Time:</span>
-        <span class="value">{{time}}</span>
+        <span class="value" id="time">{{time}}</span>
       </div>
     </div>
     <div id="map"></div>
@@ -68,12 +68,17 @@
         return points;
       }
 
+      
       // This example creates a 2-pixel-wide red polyline showing the path made up
       // of points we fetch from an API server
       // The original code was taken from Google Maps APIs example for drawing polylines
       // https://developers.google.com/maps/documentation/javascript/examples/polyline-simple
 
         function initMap() {
+          function izracun() {
+            var pathLength = google.maps.geometry.spherical.computeLength(runPath);
+            document.getElementById("distance").innerHTML(pathLength);
+          }
 
         var runCoordinates = getPoints();
 
@@ -223,15 +228,15 @@
           strokeWeight: 4
         });
 
-        var pathLength = google.maps.geometry.spherical.computeLength(runPath);
-
         NYMRoute.setMap(map);
         runPath.setMap(map);
+        izracun();
 
         setInterval(function(){
           runCoordinates = getPoints();
           runPath.setPath(runCoordinates);
           runPath.setMap(map);
+          izracun();
         }, 10000);
       }
     </script>
