@@ -9,16 +9,46 @@
        * element that contains the map. */
       #map {
         height: 100%;
+        width: 80%;
+      }
+      #sidebar {
+        width: 20%;
+        float: right;
+        box-sizing: border-box;
+        padding: 10px;
+      }
+      #sidebar>div {
+        padding: 5px 0;
+      }
+      #sidebar .label {
+        display: inline-block;
+        width: 100px;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 100%;
         margin: 0;
         padding: 0;
+        font-family: Arial,Sans-serif;
+        font-size: 14px;
       }
     </style>
   </head>
   <body>
+    <div id="sidebar">
+      <div>
+        <span class="label">NY local time:</span>
+        <span class="value">{{clock}}</span>
+      </div>
+      <div>
+        <span class="label">Distance:</span>
+        <span class="value">{{distance}}</span>
+      </div>
+      <div>
+        <span class="label">Time:</span>
+        <span class="value">{{time}}</span>
+      </div>
+    </div>
     <div id="map"></div>
     <script>
 
@@ -27,7 +57,7 @@
       function getPoints() {
         var xhttp = new XMLHttpRequest();
         var APIURL = "https://peaceful-woodland-37987.herokuapp.com/path/" + "{{path}}"
-        // var APIURL = "http://localhost:3000/path" + "{{path}}"
+        // var APIURL = "http://localhost:3000/path/" + "{{path}}"
         xhttp.open("GET", APIURL, false);
         xhttp.setRequestHeader("Content-type", "application/json");
         xhttp.send();
@@ -192,6 +222,15 @@
 
         NYMRoute.setMap(map);
         runPath.setMap(map);
+<<<<<<< HEAD
+
+=======
+        
+>>>>>>> f938f25b46d352af6e0ef9fe9e3a0df71201a727
+        setInterval(function(){
+          runCoordinates = getPoints();
+          runPath.setPath(runCoordinates);
+        }, 60000);
       }
     </script>
     <script async defer
