@@ -5,8 +5,49 @@
     <meta charset="utf-8">
     <title>{{pageTitle}}</title>
     <style>
+      .progress-radial {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #662583;
+        margin-top: 12px;
+      }
 
-      #logo {margin: -15px -10px 10px -10px}
+      .progress-radial .overlay {
+          position: absolute;
+          width: 90px;
+          height: 90px;
+          background-color: #f2f2f2;
+          border-radius: 50%;
+          margin-left: 5px;
+          margin-top: 5px;
+          text-align: center;
+          line-height: 90px;
+          font-size: 24px;
+      }
+      .progress-0 { background-image: linear-gradient(90deg, #d5d6d7 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(90deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-5 { background-image: linear-gradient(90deg, #d5d6d7 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(108deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-10 { background-image: linear-gradient(90deg, #d5d6d7 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(126deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-15 { background-image: linear-gradient(90deg, #d5d6d7 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(144deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-20 { background-image: linear-gradient(90deg, #d5d6d7 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(162deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-25 { background-image: linear-gradient(90deg, #d5d6d7 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(180deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-30 { background-image: linear-gradient(90deg, #d5d6d7 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(198deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-35 { background-image: linear-gradient(90deg, #d5d6d7 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(216deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-40 { background-image: linear-gradient(90deg, #d5d6d7 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(234deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-45 { background-image: linear-gradient(90deg, #d5d6d7 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(252deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-50 { background-image: linear-gradient(-90deg, #662583 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-55 { background-image: linear-gradient(-72deg, #662583 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-60 { background-image: linear-gradient(-54deg, #662583 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-65 { background-image: linear-gradient(-36deg, #662583 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-70 { background-image: linear-gradient(-18deg, #662583 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-75 { background-image: linear-gradient(0deg, #662583 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-80 { background-image: linear-gradient(18deg, #662583 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-85 { background-image: linear-gradient(36deg, #662583 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-90 { background-image: linear-gradient(54deg, #662583 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-95 { background-image: linear-gradient(72deg, #662583 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+      .progress-100 { background-image: linear-gradient(90deg, #662583 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #662583 50%, #d5d6d7 50%, #d5d6d7); }
+
       #logo img {width: 100%}
       #map {
         height: 100%;
@@ -16,14 +57,49 @@
         width: 20%;
         float: right;
         box-sizing: border-box;
-        padding: 10px;
+        height: 100%;
+        position: relative;
+
+        background: #f2f2f2;
+
+        border-left: 1px solid #dedede;
       }
-      #sidebar>div {
-        padding: 5px 0;
+
+      .sidebar-content {
+        padding: 24px;
       }
-      #sidebar .label {
-        display: inline-block;
-        width: 100px;
+
+      .distance-label {
+        display: block;
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 0.09em;
+        opacity: 0.6;
+        font-weight: 300;
+        margin-bottom: 0px;
+      }
+
+      .distance-km {
+        text-transform: uppercase;
+        font-size: 15px;
+        letter-spacing: 0.09em;
+        font-weight: 400;
+      }
+
+      .distance-left {
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        font-weight: 400;
+        opacity: 0.5;
+      }
+
+      .value-wrapper {
+        margin-bottom: 24px;
+      }
+
+      .value {
+        font-size: 54px;
+        margin-bottom: 24px;
       }
 
       html, body {
@@ -32,25 +108,48 @@
         padding: 0;
         font-family: Arial,Sans-serif;
         font-size: 24px;
+        overflow-y: hidden;
+
+        font-family: 'Rubik', sans-serif;
+      }
+
+      div.aw-widget-current-inner div.aw-widget-content {
+        border-width: 1px !important;
+      }
+
+      .weather-widget {
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+
       }
     </style>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
   </head>
   <body>
     <div id="sidebar">
-      <div id="logo"><img src="http://www.funkcija-13.hr/img/maratonac.png" /></div>
-      <div>
+      <div id="logo"><img src="img/logo.svg" /></div>
+      <div class="weather-widget">
         <a href="https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/349727" class="aw-widget-legal">
         </a><div id="awcc1509662962731" class="aw-widget-current"  data-locationkey="349727" data-unit="c" data-language="en-us" data-useip="false" data-uid="awcc1509662962731"></div>
         <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
       </div>
-      <div>
-        <span class="label">Distance:</span>
-        <span class="value" id="distance">{{pathLength}}</span>
+
+      <div class="sidebar-content">
+        <span class="distance-label">Distance</span>
+        <div class="value-wrapper">
+          <span class="value" id="distance">{{pathLength}}</span><span class="distance-km">km</span> <span class="distance-left">of 24km</span>
+        </div>
+
+        <span class="distance-label">Completed</span>
+        <div class="progress-radial progress-50">
+          <div class="overlay">50%</div>
+        </div>
       </div>
-      <div>
-        <span class="label">Time:</span>
-        <span class="value" id="time">{{time}}</span>
-      </div>
+
+      <!--<span class="label">Time:</span>
+      <span class="value" id="time">{{time}}</span>-->
 
     </div>
 
@@ -84,19 +183,22 @@
         var runCoordinates = getPoints();
 
         var lastCoord = runCoordinates[runCoordinates.length -1];
+        //Centered in NY
+        //var lastCoord = {lng: -73.982921, lat: 40.677579}
 
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
           center: lastCoord,
+          styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#d5d6d7"},{"visibility":"on"}]}],
           mapTypeId: 'terrain'
         });
 
         var NYMRoute = new google.maps.Polyline({
           path: NYMCoords,
           geodesic: true,
-          strokeColor: '#0037ff',
+          strokeColor: '#009df6',
           strokeOpacity: 1.0,
-          strokeWeight: 6
+          strokeWeight: 5
         });
 
         var runPath = new google.maps.Polyline({
@@ -110,7 +212,7 @@
         function calcDist() {
           var pathLength = google.maps.geometry.spherical.computeLength(runPath.getPath())/1000;
           pathLength = pathLength.toFixed(2);
-          document.getElementById("distance").innerHTML = pathLength +' km';
+          document.getElementById("distance").innerHTML = pathLength;
         }
 
         NYMRoute.setMap(map);
