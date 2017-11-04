@@ -129,7 +129,7 @@
   </head>
   <body>
     <div id="sidebar">
-      <div id="logo"><img src="img/logo.svg" /></div>
+      <div id="logo"><img src="/img/logo.svg" /></div>
       <div class="weather-widget">
         <a href="https://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/349727" class="aw-widget-legal">
         </a><div id="awcc1509662962731" class="aw-widget-current"  data-locationkey="349727" data-unit="c" data-language="en-us" data-useip="false" data-uid="awcc1509662962731"></div>
@@ -139,12 +139,12 @@
       <div class="sidebar-content">
         <span class="distance-label">Distance</span>
         <div class="value-wrapper">
-          <span class="value" id="distance">{{pathLength}}</span><span class="distance-km">km</span> <span class="distance-left">of 24km</span>
+          <span class="value" id="distance">{{pathLength}}</span><span class="distance-km">km</span> <span class="distance-left">of 42.195km</span>
         </div>
 
         <span class="distance-label">Completed</span>
-        <div class="progress-radial progress-50">
-          <div class="overlay">50%</div>
+        <div class="progress-radial progress-10">
+          <div class="overlay" id="perc">{{pathPerc}} %</div>
         </div>
       </div>
 
@@ -212,7 +212,10 @@
         function calcDist() {
           var pathLength = google.maps.geometry.spherical.computeLength(runPath.getPath())/1000;
           pathLength = pathLength.toFixed(2);
+          pathPerc = (pathLength / 42.195) * 100;
+          pathPerc = pathPerc.toFixed(2)
           document.getElementById("distance").innerHTML = pathLength;
+          document.getElementById("perc").innerHTML = pathPerc;
         }
 
         NYMRoute.setMap(map);
